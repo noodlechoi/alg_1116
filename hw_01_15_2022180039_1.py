@@ -13,5 +13,34 @@ edges = [
 ]
 num_vertex = 25
 
+INF = float('inf')
+# inf가 들어있는 25 * 25 2차원 배열
+D = [[INF for _ in range(num_vertex)] for _ in range(num_vertex)]
+# 직접 갈 수 있는 것
+V = [[ -1 for _ in range(num_vertex)] for _ in range(num_vertex)]
 
+for s, e, w in edges:
+  D[s][e] = w
+  D[e][s] = w
 
+# print(D)
+
+# k = 경유지
+for k in ...:
+  for s in  ...:
+    if s == k: continue
+    for e in ...:
+      if e == s or e == k: continue
+      if 갱신 필요해?:
+        갱신하자
+        s에서  e갈 때는 k를 반드시 들렸다 가야한다는 것을 기록한다.
+
+def getPath(s, e):
+  ????
+
+for s in ...:
+  for e in range...:
+    if s == e: continue
+    path = getPath(s, e)
+    cost = D[s][e]
+    print(f'{path} ({cost}')
