@@ -26,21 +26,28 @@ for s, e, w in edges:
 # print(D)
 
 # k = 경유지
-for k in ...:
-  for s in  ...:
+for k in range(num_vertex):
+  for s in  range(num_vertex):
     if s == k: continue
-    for e in ...:
+    for e in range(num_vertex):
       if e == s or e == k: continue
-      if 갱신 필요해?:
-        갱신하자
-        s에서  e갈 때는 k를 반드시 들렸다 가야한다는 것을 기록한다.
+      v = D[s][k]+ D[k][e] # s에서 e 갈 때 k 경유하는 비용
+      if D[s][e] > v:
+        D[s][e] = v
+        # s에서  e갈 때는 k를 반드시 들렸다 가야한다는 것을 기록한다.
+        V[s][e] = k
 
 def getPath(s, e):
-  ????
+  k = V[s][e]
+  # 한번도 V[s][e] = k 코드가 실행되지 않은 것
+  if k == -1: return f'->{e}'
+  return getPath(s, k) + getPath(k, e)
 
-for s in ...:
-  for e in range...:
+
+
+for s in range(num_vertex):
+  for e in range(num_vertex):
     if s == e: continue
     path = getPath(s, e)
     cost = D[s][e]
-    print(f'{path} ({cost}')
+    print(f'{s}{path} ({cost})')
